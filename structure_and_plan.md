@@ -3,6 +3,7 @@
 ### Game
 * game name
 * game owner (User)
+* game password (encrypted)
 * Questions (1 game -> many Questions)
 ### Question
 * the question
