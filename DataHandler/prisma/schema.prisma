@@ -10,29 +10,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Game{
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+model Game {
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
   name      String
-  password String
-  questions Qustion[]
+  password  String
+  questions Question[]
+  users      User[]
 }
 
-model Question{
-  id        Int      @id @default(autoincrement())
+model Question {
+  id       Int      @id @default(autoincrement())
   question String
-  isOver Boolean
-  answers Answer[]
+  isOver   Boolean
+  game     Game     @relation(fields: [gameId], references: [id])
+  answers  Answer[]
+  gameId   Int
 }
 
-model Answer{
-  id        Int      @id @default(autoincrement())
-  answer String
-  user User
+model Answer {
+  id         Int       @id @default(autoincrement())
+  answer     String
+  user       User      @relation(fields: [userId], references: [id])
+  Question   Question? @relation(fields: [questionId], references: [id])
+  questionId Int?
+  userId     Int
 }
 
-model User{  
-  id        Int      @id @default(autoincrement())
-  name String
-  fromGame Game
+model User {
+  id       Int      @id @default(autoincrement())
+  name     String
+  fromGame Game     @relation(fields: [gameId], references: [id])
+  Answer   Answer[]
+  gameId   Int
 }
