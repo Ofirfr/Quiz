@@ -31,6 +31,7 @@ services:
       - ~/data/quizzer-mysql:/data
     restart: always
     environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
       MYSQL_DATABASE: ${MYSQL_DATABASE_NAME}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
