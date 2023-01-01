@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Game` ADD COLUMN `isOver` BOOLEAN NOT NULL DEFAULT false;

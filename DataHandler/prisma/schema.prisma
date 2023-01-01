@@ -14,7 +14,7 @@ model Game {
   id        Int        @id @default(autoincrement())
   createdAt DateTime   @default(now())
   name      String
-  password  String
+  isOver Boolean @default(false)
   questions Question[]
   users      User[]
 }
