@@ -1,0 +1,4 @@
+npm i jsonwebtoken @types/jsonwebt
+npx i prisma @types/prisma
+npm i express @types/express
+npm i dotenv @types/dotenv
